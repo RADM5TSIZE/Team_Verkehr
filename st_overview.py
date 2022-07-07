@@ -1,15 +1,15 @@
 import streamlit as st
 import os
 import pandas as pd 
-import re
-import math
+
+
 
 
 def app():
     st.write("""# Title""")
 
     intersection = [".".join(f.split(".")[:-1])
-                    for f in os.listdir(r"C:\Users\Moritz Mueller\Desktop\Verkehr\data")]
+                    for f in os.listdir(r".\data")]
 
     form = st.form(key="input_data")
 
@@ -32,14 +32,14 @@ def app():
     if submitted:
 
         try:
-            data = pd.read_csv(r"C:\Users\Moritz Mueller\Desktop\Verkehr\data" +
+            data = pd.read_csv(r".\data" +
                                "\\" + option + r".csv", delimiter=";")
         except pd.errors.ParserError as e:
             st.write("""### Not Supported Intersection""")
             return
 
 
-        data = pd.read_csv(r"C:\Users\Moritz Mueller\Desktop\Verkehr\data" +
+        data = pd.read_csv(r".\data" +
                                "\\" + option + r".csv", delimiter=";")
         data.rename(columns={'01.06.2020 00:00': 'datetime'}, inplace=True)
         data['datetime'] = pd.to_datetime(
