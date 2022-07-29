@@ -5,7 +5,7 @@ import st_model
 import st_overview
 
 PAGES = {
-    "Overview": st_overview,
+    "General Overview": st_overview,
     "Specific Overview": st_specific_overview,
     "Model": st_model
         }
